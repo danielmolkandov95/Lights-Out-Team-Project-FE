@@ -1,0 +1,23 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+  }
+  
+  .App{
+    background-color: rgba(0,0,0,0.5);
+    border: 3px solid black;
+  }
+  
+   body{
+      background-image: url("./images/—Pngtree—modern\ double\ color\ futuristic\ neon_1181573.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      min-height:100%;
+      width:100%;
+      object-fit:cover;
+      position: relative;
+      overflow: none;
+    }
