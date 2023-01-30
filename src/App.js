@@ -5,9 +5,10 @@ import UserContextProvider from "./context/UserContext";
 function App() {
   return (
     <div>
-      <NavBar>
+      <UserContextProvider>
+        <NavBar />
         <HomePage />
-      </NavBar>
+      </UserContextProvider>
     </div>
   );
 }
