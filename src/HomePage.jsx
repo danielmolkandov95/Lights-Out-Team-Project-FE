@@ -8,13 +8,9 @@ function HomePage() {
   const { currentUser } = useContext(UserContext);
 
   const isLoggedIn = currentUser.userId;
-  console.log(isLoggedIn)
+  // console.log(isLoggedIn)
 
-  return (
-    <>
-      {isLoggedIn ? <HomeNotLoggedIn /> : <HomeLoggedIn /> }
-    </>
-  );
+  return <>{isLoggedIn ? <HomeNotLoggedIn /> : <HomeLoggedIn />}</>;
 }
 
 export default HomePage;

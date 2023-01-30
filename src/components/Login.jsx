@@ -7,16 +7,19 @@ import Modal from "react-bootstrap/Modal";
 import Nav from "react-bootstrap/Nav";
 
 function LogIn() {
-  
-  const { handleLogIn, loginInfo, setLoginInfo } = useContext(UserContext);
-
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const {
+    handleLogIn,
+    loginInfo,
+    setLoginInfo,
+    handleShow,
+    show,
+    handleClose,
+  } = useContext(UserContext);
 
   const handleChange = (e) => {
     setLoginInfo({ ...loginInfo, [e.target.id]: e.target.value });
   };
+  console.log(loginInfo);
 
   //   const { email, password } = loginInfo;
 
@@ -48,19 +51,11 @@ function LogIn() {
             >
               <Form.Control type="password" placeholder="Password" />
             </FloatingLabel>
-            <Button variant="primary" type="submit">
+            <Button variant="dark" type="submit">
               Login
             </Button>
-            <a href="/signup" className="signup-link ms-2">
-              First time? Create an account.
-            </a>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
       </Modal>
     </div>
   );

@@ -1,72 +1,77 @@
 import { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
-
-
 export const UserContext = createContext();
 
 export default function UserContextProvider({ children }) {
-  
-    const [loginInfo, setLoginInfo] = useState({
-        email: "",
-        password: "",
-      });
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-      const [currentUser, setCurrentUser] = useState({
-        userId: 3,
-        userName: "Raphy",
-        lastScore: 700,
-        highestScore: 925,
-      });
+  const [loginInfo, setLoginInfo] = useState({
+    email: "",
+    password: "",
+  });
+  const [signUpInfo, setSignUpInfo] = useState({});
 
-      const [token, setToken] = useState(
-        JSON.stringify(localStorage.getItem("token")) || null
-      );
-    
-      useEffect(() => {
-        if (token) {
-          localStorage.setItem("token", JSON.stringify(token));
-        }
-      }, [token]);
-    
-      const headersConfig = {
-        authorization: `Bearer ${token}`,
-      };
+  const [currentUser, setCurrentUser] = useState({
+    userId: 3,
+    userName: "Raphy",
+    lastScore: 700,
+    highestScore: 925,
+  });
 
-      const handleLogIn = async (event) => {
-        event.preventDefault()
+  const [token, setToken] = useState(
+    JSON.parse(localStorage.getItem("token")) || null
+  );
 
-        try{
-            // const data = await axios.post("http://localhost:8080/user/login", loginInfo);
+  useEffect(() => {
+    if (token) {
+      localStorage.setItem("token", JSON.stringify(token));
+    }
+  }, [token]);
 
-            let data = {};
+  const headersConfig = {
+    authorization: `Bearer ${token}`,
+  };
 
-            if (true) {
-                data = currentUser;
-                                    
+  const handleSignUp = async () => {};
 
-                setLoginInfo({
-                  email: "",
-                  password: "",
-                });
-                console.log(data);
-                setCurrentUser(data);
-        
-                setToken(data);
-                // setLoading(false);
-        
-                toast.success("Log in successfull.");
-                window.location.reload();
-                if (typeof window !== "undefined") {
-                  localStorage.setItem("token", JSON.stringify(data.data.token));
-                  localStorage.setItem("currentUser", JSON.stringify(data.data.user._id)
-                  );
-                }
-              }
-        } catch (err) {
-            alert(err)
+  const handleLogIn = async (event) => {
+    event.preventDefault();
+
+    try {
+      // const data = await axios.post("http://localhost:8080/user/login", loginInfo);
+
+      let data = {};
+
+      if (true) {
+        data = currentUser;
+
+        setLoginInfo({
+          email: "",
+          password: "",
+        });
+        console.log(data);
+        setCurrentUser(data);
+
+        setToken(data);
+        // setLoading(false);
+
+        toast.success("Log in successfull.");
+        window.location.reload();
+        if (typeof window !== "undefined") {
+          localStorage.setItem("token", JSON.stringify(data.data.token));
+          localStorage.setItem(
+            "currentUser",
+            JSON.stringify(data.data.user._id)
+          );
         }
       }
+    } catch (err) {
+      alert(err);
+    }
+  };
 
   return (
     <UserContext.Provider
@@ -79,9 +84,15 @@ export default function UserContextProvider({ children }) {
         setCurrentUser,
         token,
         setToken,
+        handleShow,
+        handleClose,
+        show,
+        signUpInfo,
+        setSignUpInfo,
+        handleSignUp,
       }}
     >
       {children}
     </UserContext.Provider>
   );
-};
+}
