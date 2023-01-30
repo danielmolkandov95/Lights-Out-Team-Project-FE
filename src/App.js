@@ -1,9 +1,11 @@
+import Game from "./components/Game";
 import HomePage from "./HomePage";
 
 function App() {
   return (
     <div>
-      <HomePage />
+      <Game/>
+      {/* <HomePage /> */}
     </div>
   );
 }
