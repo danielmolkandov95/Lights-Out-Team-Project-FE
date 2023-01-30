@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import { UserContext } from "../context/UserContext";
 import { useContext, useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import Nav from "react-bootstrap/Nav";
 
 function LogIn() {
   const { handleLogIn, loginInfo, setLoginInfo } = useContext(UserContext);
@@ -20,9 +21,9 @@ function LogIn() {
 
   return (
     <div>
-      <Button variant="primary" onClick={handleShow}>
-        Log In
-      </Button>
+      <Nav.Link variant="primary" onClick={handleShow}>
+        Login
+      </Nav.Link>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

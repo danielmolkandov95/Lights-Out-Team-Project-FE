@@ -6,9 +6,14 @@ function App() {
   return (
     <div>
       <UserContextProvider>
+<<<<<<< HEAD
         <NavBar>
           <HomePage />
         </NavBar>
+=======
+        <NavBar />
+        <HomePage />
+>>>>>>> main
       </UserContextProvider>
     </div>
   );
