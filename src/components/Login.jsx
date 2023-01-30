@@ -7,6 +7,7 @@ import Modal from "react-bootstrap/Modal";
 import Nav from "react-bootstrap/Nav";
 
 function LogIn() {
+  
   const { handleLogIn, loginInfo, setLoginInfo } = useContext(UserContext);
 
   const [show, setShow] = useState(false);

@@ -7,12 +7,11 @@ import Score from "./components/Score"
 function App() {
   return (
     <div>
-      <Score/>
-      {/* <UserContextProvider>
-        <NavBar />
-        <HomePage />
-      </UserContextProvider> */}
-      <Game/>
+      <UserContextProvider>
+        <NavBar/>
+          <HomePage />
+    
+      </UserContextProvider>
     </div>
   );
 }
