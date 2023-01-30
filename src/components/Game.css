@@ -41,6 +41,9 @@
     border: none;
     border-radius: 50%;
     height: 25px;
-    margin: 20px;
+    margin: 25px;
     width: 25px;
+    display: flex;
+    justify-content: center;
 }
+
