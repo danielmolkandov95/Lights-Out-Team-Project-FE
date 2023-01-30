@@ -8,11 +8,11 @@ function HomePage() {
   const { currentUser } = useContext(UserContext);
 
   const isLoggedIn = currentUser.userId;
-  console.log(isLoggedIn)
+  console.log("isLoggedin",isLoggedIn)
 
   return (
     <>
-      {isLoggedIn ? <HomeNotLoggedIn /> : <HomeLoggedIn /> }
+      {isLoggedIn ?  <HomeLoggedIn /> : <HomeNotLoggedIn />  }
     </>
   );
 }
