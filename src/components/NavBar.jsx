@@ -8,8 +8,7 @@ import { UserContext } from "../context/UserContext";
 import { useContext } from "react";
 
 export default function NavBar() {
-  const { handleLogin, loginInfo, setLoginInfo, currentUser } =
-    useContext(UserContext);
+  const { handleLogin, loginInfo, setLoginInfo, currentUser } = useContext(UserContext);
 
   const navigate = useNavigate();
   console.log(currentUser);
