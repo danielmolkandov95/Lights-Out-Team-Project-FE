@@ -1,49 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Itim&family=Montserrat&family=Poppins:wght@300&family=Rubik:ital,wght@1,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Itim&family=Montserrat&family=Poppins:wght@300&family=Rubik:ital,wght@1,500&display=swap");
 
-.table{
-    border-radius: 25px;
-    box-shadow: 0 0 7px #fff, 0 0 10px #fff;
-    width: 40%;
-    height: 22rem;
-    margin: 4rem auto;
+.table {
+  border-radius: 25px;
+  box-shadow: 0 0 7px #fff, 0 0 10px #fff;
+  width: 40%;
+  height: 22rem;
+  margin: 3rem auto;
+  background-color: #212121;
 }
 
 @media only screen and (max-width: 800px) {
-   .table {border-radius: 15px}
-  .table{width: 80%;}  
-   .table {height: 24rem;}
-   .table{ margin: 26% auto;}
+  .table {
+    border-radius: 15px;
+    margin: 26% auto;
   }
-  
-  .score{
-    color: #fff;
-    border-radius: 25px;
-    box-shadow: 0 0 7px #fff, 0 0 10px #fff;
-    width: 15%;
-    height: 2rem;
-    margin: 1rem auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Itim', cursive;
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Poppins', sans-serif;
-    font-family: 'Rubik', sans-serif;
+}
+
+.score {
+  color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 0 7px #fff, 0 0 10px #fff;
+  width: 15%;
+  height: 2rem;
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Itim", cursive;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 @media only screen and (max-width: 800px) {
-    .score{   width: 52%;
-        height: 3rem;
-        margin: 1rem auto;}
+  .score {
+    width: 52%;
+    height: 3rem;
+    margin: 1rem auto;
+  }
 }
 
-.light-on{
-    border: none;
-    border-radius: 50%;
-    height: 25px;
-    margin: 25px;
-    width: 25px;
-    display: flex;
-    justify-content: center;
+.light-on {
+  border: none;
+  border-radius: 50%;
+  height: 25px;
+  margin: 20px;
+  width: 25px;
+  box-shadow: 0 0 7px #fff, 0 0 10px #fff;
+}
+tr,
+td {
+  border: none;
 }
 
