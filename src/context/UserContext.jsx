@@ -13,8 +13,8 @@ export default function UserContextProvider({ children }) {
       });
 
       const [currentUser, setCurrentUser] = useState({
-        userId: "",
-        username:"",
+        userId: 3,
+        username: "Raphy",
       });
 
       const [token, setToken] = useState(
