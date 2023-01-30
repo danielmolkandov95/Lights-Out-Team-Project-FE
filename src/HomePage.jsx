@@ -1,7 +1,7 @@
 import React from "react";
 import HomeNotLoggedIn from "./components/HomeNotLoggedIn";
 import { UserContext } from "../src/context/UserContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import HomeLoggedIn from "./components/HomeLoggedIn";
 
 function HomePage() {
