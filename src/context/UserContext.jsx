@@ -18,7 +18,7 @@ export default function UserContextProvider({ children }) {
       });
 
       const [token, setToken] = useState(
-        JSON.parse(localStorage.getItem("token")) || null
+        JSON.stringify(localStorage.getItem("token")) || null
       );
     
       useEffect(() => {
