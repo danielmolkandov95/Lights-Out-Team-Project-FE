@@ -1,0 +1,15 @@
+.table{
+    border-radius: 25px;
+        box-shadow: 0 0 7px #fff, 0 0 10px #fff;
+    width: 40%;
+    height: 25rem;
+    margin: 6rem auto;
+}
+
+@media only screen and (max-width: 800px) {
+   .table {border-radius: 15px}
+  .table{width: 80%;}  
+   .table {height: 24rem;}
+   .table{ margin: 50% auto;}
+  }
+  
