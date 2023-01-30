@@ -1,5 +1,6 @@
-import { createContext, useState } from "react";
-import axios from "axios";
+import { createContext, useState, useEffect } from "react";
+import { toast } from "react-toastify";
+
 
 
 export const UserContext = createContext();
@@ -34,17 +35,23 @@ export default function UserContextProvider({ children }) {
         event.preventDefault()
 
         try{
-            const data = await axios.post("http://localhost:8080/user/login", loginInfo);
+            // const data = await axios.post("http://localhost:8080/user/login", loginInfo);
 
-            if (data) {
+            let data = {};
+
+            if (true) {
+                data = {
+                    userName: "Ben",                     
+                }
+
                 setLoginInfo({
                   email: "",
                   password: "",
                 });
                 console.log(data);
-                setCurrentUser(data.data.user);
+                setCurrentUser(data);
         
-                setToken(data.data.token);
+                setToken(data);
                 // setLoading(false);
         
                 toast.success("Log in successfull.");

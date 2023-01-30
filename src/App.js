@@ -1,9 +1,14 @@
+import LogIn from "./components/Login";
 import HomePage from "./HomePage";
+import UserContextProvider from "./context/UserContext";
 
 function App() {
   return (
     <div>
-      <HomePage />
+      <UserContextProvider>
+        <LogIn />
+        <HomePage />
+      </UserContextProvider>
     </div>
   );
 }
