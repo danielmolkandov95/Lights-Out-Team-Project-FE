@@ -14,7 +14,9 @@ export default function UserContextProvider({ children }) {
 
       const [currentUser, setCurrentUser] = useState({
         userId: 3,
-        username: "Raphy",
+        userName: "Raphy",
+        lastScore: 700,
+        highestScore: 925,
       });
 
       const [token, setToken] = useState(
@@ -40,9 +42,8 @@ export default function UserContextProvider({ children }) {
             let data = {};
 
             if (true) {
-                data = {
-                    userName: "Ben",                     
-                }
+                data = currentUser;
+                                    
 
                 setLoginInfo({
                   email: "",

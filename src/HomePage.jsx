@@ -1,19 +1,18 @@
 import React from "react";
 import HomeNotLoggedIn from "./components/HomeNotLoggedIn";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../src/context/UserContext";
 import { useContext, useState } from "react";
 import HomeLoggedIn from "./components/HomeLoggedIn";
 
 function HomePage() {
   const { currentUser } = useContext(UserContext);
 
-  const isLoggedIn = true;
+  const isLoggedIn = currentUser.userId;
+  console.log(isLoggedIn)
 
   return (
     <>
-      {!isLoggedIn && <HomeNotLoggedIn />}
-
-      {isLoggedIn && <HomeLoggedIn />}
+      {isLoggedIn ? <HomeNotLoggedIn /> : <HomeLoggedIn /> }
     </>
   );
 }

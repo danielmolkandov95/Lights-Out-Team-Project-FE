@@ -6,9 +6,9 @@ function App() {
   return (
     <div>
       <UserContextProvider>
-        <NavBar>
+        <NavBar/>
           <HomePage />
-        </NavBar>
+    
       </UserContextProvider>
     </div>
   );
