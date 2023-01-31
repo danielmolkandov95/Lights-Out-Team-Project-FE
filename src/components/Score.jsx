@@ -8,7 +8,7 @@ function Score() {
       <div className="container">
       
         <Table className="table-score">
-          Track your progress:
+           Your Top Scores:
           <thead>
             <tr>
               <th>Date</th>
@@ -32,11 +32,11 @@ function Score() {
         </Table>
 
         <Table className="table-score">
-          Track players progress:
+          Top Scores:
           <thead>
             <tr>
               <th>#</th>
-              <th>Username</th>
+              <th>User Name</th>
               <th>Score</th>
             </tr>
           </thead>
@@ -60,10 +60,10 @@ function Score() {
         </Table>
 
         <Table className="table-score">
-          Track the highest score:
+          Top Score:
           <thead>
             <tr>
-            <th>Username</th>
+            <th>User Name</th>
               <th>Score</th>
             </tr>
           </thead>

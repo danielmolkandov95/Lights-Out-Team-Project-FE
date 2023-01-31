@@ -3,34 +3,67 @@ import { Link, useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import LogIn from "../components/Login";
-
 import { UserContext } from "../context/UserContext";
+import "./NavBar.css";
 import SignUp from "./SignUp";
+import { useEffect } from "react";
 
 export default function NavBar() {
-  const { handleLogin, loginInfo, setLoginInfo, currentUser } =
-    useContext(UserContext);
+     const navigate = useNavigate();
+   const { currentUser } = useContext(UserContext);
 
-  const navigate = useNavigate();
-  // console.log(currentUser);
+   useEffect(()=>{
 
-  return (
-    <div>
-      <Navbar className="justify-content-between" bg="dark" variant="dark">
-        <div className="container">
-          <Navbar.Brand as={Link} to="/">
-            Lights Out
-          </Navbar.Brand>
-          <Nav className="align-items-center">
-            <Nav.Link as={Link} to="/">
-              <LogIn />
-            </Nav.Link>
-            <Nav.Link as={Link} to="/">
-              <SignUp />
-            </Nav.Link>
-          </Nav>
-        </div>
-      </Navbar>
-    </div>
-  );
+   },[currentUser])
+
+   return (
+      <div>
+         <Navbar
+            className="justify-content-between nav-bar"
+            bg="dark"
+            variant="dark"
+         >
+            <div className="container">
+               <Navbar.Brand as={Link} to="/">
+                  Lights Out !
+               </Navbar.Brand>
+               <Nav className="align-items-center w-100 d-flex justify-content-center gap-5">
+                  {currentUser && (
+                     <Nav.Link as={Link} to="/game">
+                        Game
+                     </Nav.Link>
+                  )}
+                  {currentUser && (
+                     <Nav.Link as={Link} to="/score">
+                        Scores
+                     </Nav.Link>
+                  )}
+                  {!currentUser && (
+                     <Nav.Link as={Link} to="/">
+                        <LogIn />
+                     </Nav.Link>
+                  )}
+                  {!currentUser && (
+                     <Nav.Link as={Link} to="/">
+                        <SignUp />
+                     </Nav.Link>
+                  )}
+                  {currentUser && (
+                     <Nav.Link
+                        as={Link}
+                        to="/"
+                        onClick={() => {
+                           localStorage.clear();
+                           navigate("/");
+                           window.location.reload();
+                        }}
+                     >
+                        Logout
+                     </Nav.Link>
+                  )}
+               </Nav>
+            </div>
+         </Navbar>
+      </div>
+   );
 }

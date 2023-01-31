@@ -14,47 +14,53 @@ function LogIn() {
 
 
   const handleChange = (e) => {
-    setLoginInfo({ ...loginInfo, [e.target.id]: e.target.value });
+    setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
+    console.log(loginInfo);
   };
-  console.log(loginInfo);
-
-  //   const { email, password } = loginInfo;
 
   return (
-    <div>
-      <Nav.Link variant="primary" onClick={handleShow}>
-        Login
-      </Nav.Link>
+     <div>
+        <Nav.Link variant="primary" onClick={handleShow}>
+           Login
+        </Nav.Link>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Log In</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={handleLogIn}>
-            <FloatingLabel
-              onChange={handleChange}
-              controlId="email"
-              label="Email address"
-              className="mb-3"
-            >
-              <Form.Control type="email" placeholder="name@example.com" />
-            </FloatingLabel>
-            <FloatingLabel
-              onChange={handleChange}
-              controlId="password"
-              label="Password"
-              className="mb-3"
-            >
-              <Form.Control type="password" placeholder="Password" />
-            </FloatingLabel>
-            <Button variant="dark" type="submit">
-              Login
-            </Button>
-          </Form>
-        </Modal.Body>
-      </Modal>
-    </div>
+        <Modal show={show} onHide={handleClose}>
+           <Modal.Header closeButton>
+              <Modal.Title style={{ color: "black" }}>Log In</Modal.Title>
+           </Modal.Header>
+           <Modal.Body>
+              <Form onSubmit={handleLogIn}>
+                 <Form.Label
+                    onChange={handleChange}
+                    controlId="email"
+                    label="Email address"
+                    className="mb-3"
+                 >
+                    <Form.Control
+                       name="email"
+                       type="email"
+                       placeholder="Enter Email Address..."
+                    />
+                 </Form.Label>
+                 <Form.Label
+                    onChange={handleChange}
+                    controlId="password"
+                    label="Password"
+                    className="mb-3"
+                 >
+                    <Form.Control
+                       name="password"
+                       type="password"
+                       placeholder="Enter Password..."
+                    />
+                 </Form.Label>
+                 <Button onClick={handleLogIn} variant="dark" type="submit">
+                    Login
+                 </Button>
+              </Form>
+           </Modal.Body>
+        </Modal>
+     </div>
   );
 }
 

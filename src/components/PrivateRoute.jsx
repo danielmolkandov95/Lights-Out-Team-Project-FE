@@ -5,7 +5,7 @@ import { UserContext } from "../context/UserContext";
 function PrivateRoute({ children }) {
   const { currentUser } = useContext(UserContext);
 
-  return <div>{currentUser.userId ? <div>{children}</div> : <Navigate to={"/"} />}</div>;
+  return <div>{currentUser?.userName ? <div>{children}</div> : <Navigate to={"/"} />}</div>;
 }
 
 export default PrivateRoute;

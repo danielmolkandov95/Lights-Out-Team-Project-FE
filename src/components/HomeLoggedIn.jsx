@@ -7,16 +7,16 @@ import { useNavigate } from "react-router-dom";
 function HomeLoggedIn() {
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
-
+  console.log('user', currentUser.userName);
   return (
     <div className="user-welcome-page">
       <div>
-        <h1>Welcome {currentUser.userName}</h1><br/>
+        <h1>Welcome {currentUser?.userName}</h1><br/>
 
-        <h2>Last Score: {currentUser.lastScore} </h2>
-        <h2>Best Score: {currentUser.highestScore} </h2>
+        <h2>Your Last Score: {currentUser?.lastScore} </h2>
+        <h2>Your Best Score: {currentUser?.highestScore} </h2>
       <div>
-        <Button onClick={() => navigate("/game")}>PLAY</Button>
+        <Button onClick={() => navigate("/game")}>Start a new game</Button>
       </div>
       </div>
     </div>

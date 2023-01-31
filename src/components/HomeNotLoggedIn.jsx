@@ -1,17 +1,12 @@
 function HomeNotLoggedIn() {
   return (
-    <div className="mt-5">
-      <div className="fs-1 container mt-5 text-center font-weight-bold text-white">
-        Hello fellow human
-      </div>
-      <div className="fs-1 container mt-5 text-center font-weight-bold text-white">
-        Wanna play a game?
-      </div>
-      <div className="fs-1 container mt-5 text-center font-weight-bold text-white">
-        Consists of a 5 by 5 grid of lights. When the game starts, a random
-        number or a stored pattern of these lights is switched on. Pressing any
+    <div className=" d-flex justify-content-center">
+      <h1 className="ms-5 fs-1">Lights Out!</h1>
+      <div className="fs-1 w-75 container text-center font-weight-bold text-white">
+        The game consists of a 5 by 5 grid of lights. When the game starts, a random
+        number of lights is switched on. Pressing any
         of the lights will toggle it and the adjacent lights. The goal of the
-        puzzle is to switch all the lights off, preferably in as few button
+        game is to switch off all the lights, preferably in as few button
         presses as possible.
       </div>
     </div>

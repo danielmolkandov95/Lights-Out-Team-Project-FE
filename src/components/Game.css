@@ -5,7 +5,7 @@
   box-shadow: 0 0 7px #fff, 0 0 10px #fff;
   width: 40%;
   height: 22rem;
-  margin: 3rem auto;
+  margin: 5px auto;
   background-color: #212121;
 }
 
@@ -20,9 +20,10 @@
   color: #fff;
   border-radius: 25px;
   box-shadow: 0 0 7px #fff, 0 0 10px #fff;
-  width: 15%;
+  width: 25%;
   height: 2rem;
-  margin: 1rem auto;
+  margin: 0 auto;
+  margin-top: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,6 +31,28 @@
   font-family: "Montserrat", sans-serif;
   font-family: "Poppins", sans-serif;
   font-family: "Rubik", sans-serif;
+}
+
+.save-score {
+  background-color: #91defe;
+  color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 0 7px #fff, 0 0 10px #fff;
+  width: 25%;
+  height: 2rem;
+  margin: 0 auto;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Itim", cursive;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Rubik", sans-serif;
+}
+
+.save-score:hover {
+  background-color: #001eb5;
 }
 
 @media only screen and (max-width: 800px) {
