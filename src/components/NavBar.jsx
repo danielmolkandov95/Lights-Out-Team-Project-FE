@@ -22,10 +22,10 @@ export default function NavBar() {
             Lights Out
           </Navbar.Brand>
           <Nav className="align-items-center">
-            <Nav.Link as={Link} to="/Login">
+            <Nav.Link as={Link} to="/">
               <LogIn />
             </Nav.Link>
-            <Nav.Link as={Link} to="/Login">
+            <Nav.Link as={Link} to="/">
               <SignUp />
             </Nav.Link>
           </Nav>
