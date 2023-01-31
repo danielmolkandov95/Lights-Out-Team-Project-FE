@@ -16,6 +16,7 @@ function LogIn() {
     handleClose,
   } = useContext(UserContext);
 
+
   const handleChange = (e) => {
     setLoginInfo({ ...loginInfo, [e.target.id]: e.target.value });
   };

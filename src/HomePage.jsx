@@ -10,7 +10,7 @@ function HomePage() {
   const isLoggedIn = currentUser.userId;
   // console.log(isLoggedIn)
 
-  return <>{isLoggedIn ? <HomeNotLoggedIn /> : <HomeLoggedIn />}</>;
+  return <>{isLoggedIn ?  <HomeLoggedIn /> : <HomeNotLoggedIn />}</>;
 }
 
 export default HomePage;

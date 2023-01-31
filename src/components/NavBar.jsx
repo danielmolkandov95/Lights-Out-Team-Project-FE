@@ -5,7 +5,6 @@ import Navbar from "react-bootstrap/Navbar";
 import LogIn from "../components/Login";
 
 import { UserContext } from "../context/UserContext";
-import { useContext } from "react";
 import SignUp from "./SignUp";
 
 export default function NavBar() {
@@ -23,10 +22,10 @@ export default function NavBar() {
             Lights Out
           </Navbar.Brand>
           <Nav className="align-items-center">
-            <Nav.Link as={Link} to="/Login">
+            <Nav.Link as={Link} to="/">
               <LogIn />
             </Nav.Link>
-            <Nav.Link as={Link} to="/Login">
+            <Nav.Link as={Link} to="/">
               <SignUp />
             </Nav.Link>
           </Nav>

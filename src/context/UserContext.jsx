@@ -11,7 +11,7 @@ export default function UserContextProvider({ children }) {
   });
 
   const [currentUser, setCurrentUser] = useState({
-    // userId: 3,
+    userId: 3,
     userName: "Raphy",
     lastScore: 700,
     highestScore: 925,
