@@ -63,11 +63,13 @@ function Score() {
           Track the highest score:
           <thead>
             <tr>
+            <th>Username</th>
               <th>Score</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+            <td>@raph</td>
               <td>100 </td>
             </tr>
           </tbody>
