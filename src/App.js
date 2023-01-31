@@ -10,10 +10,8 @@ function App() {
     <div>
       <UserContextProvider>
         <NavBar />
-
         <Routes>
           <Route path="/" element={<HomePage />} />
-
           <Route
             path="/game"
             element={
