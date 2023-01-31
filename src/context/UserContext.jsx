@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 export const UserContext = createContext();
 
@@ -8,7 +9,6 @@ export default function UserContextProvider({ children }) {
     email: "",
     password: "",
   });
-  const [signUpInfo, setSignUpInfo] = useState({});
 
   const [currentUser, setCurrentUser] = useState({
     userId: 3,
@@ -18,7 +18,7 @@ export default function UserContextProvider({ children }) {
   });
 
   const [token, setToken] = useState(
-    JSON.parse(localStorage.getItem("token")) || null
+    JSON.stringify(localStorage.getItem("token")) || null
   );
 
   useEffect(() => {
@@ -31,19 +31,13 @@ export default function UserContextProvider({ children }) {
     authorization: `Bearer ${token}`,
   };
 
-  const handleSignUp = async () => {};
-
   const handleLogIn = async (event) => {
     event.preventDefault();
-
     try {
       // const data = await axios.post("http://localhost:8080/user/login", loginInfo);
-
       let data = {};
-
       if (true) {
         data = currentUser;
-
         setLoginInfo({
           email: "",
           password: "",
@@ -53,7 +47,6 @@ export default function UserContextProvider({ children }) {
 
         setToken(data);
         // setLoading(false);
-
         toast.success("Log in successfull.");
         window.location.reload();
         if (typeof window !== "undefined") {
@@ -68,6 +61,13 @@ export default function UserContextProvider({ children }) {
       alert(err);
     }
   };
+
+  const updateInBE = async (userName) => {
+    const clickUpdate = await axios.post(`http://localhost:8080/click/${userName}`)
+    console.log("clickUpdate", clickUpdate)
+  }
+
+  
 
   return (
     <UserContext.Provider

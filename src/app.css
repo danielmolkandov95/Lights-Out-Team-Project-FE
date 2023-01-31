@@ -22,8 +22,9 @@
       overflow: none;
     }
 
-    /* .user-welcome-page {
+    .user-welcome-page {
       display: flex;
-      flex-direction: column;
-    } */
+      justify-content: center;
+      margin-top: 50px;
+    }
    

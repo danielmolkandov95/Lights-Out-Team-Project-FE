@@ -12,6 +12,7 @@ function LogIn() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+
   const handleChange = (e) => {
     setLoginInfo({ ...loginInfo, [e.target.id]: e.target.value });
   };
