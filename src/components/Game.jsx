@@ -2,43 +2,16 @@ import React, { useContext, useState } from "react";
 import "./Game.css";
 import { Table } from "react-bootstrap";
 import { UserContext } from "../context/UserContext";
-import { changeNextTo, startGame } from "../logic/gameLogic";
+import { changeLights, startGame } from "../logic/gameLogic";
 
 function Game() {
-  // const { currentUser, updateInBE } = useContext(UserContext)
-/*{
-    A1: false,
-    A2: false,
-    A3: false,
-    A4: false,
-    A5: false,
-    B1: false,
-    B2: false,
-    B3: false,
-    B4: false,
-    B5: false,
-    C1: false,
-    C2: false,
-    C3: false,
-    C4: false,
-    C5: false,
-    D1: false,
-    D2: false,
-    D3: false,
-    D4: false,
-    D5: false,
-    E1: false,
-    E2: false,
-    E3: false,
-    E4: false,
-    E5: false,
-  }*/
+  // const { currentUser } = useContext(UserContext)
   const [grid, setGrid] = useState(startGame());
-
+  const currentUser = {
+     userName: "Raphy"
+  };
   const handleClick = (id) => {
-    setGrid(changeNextTo(id, grid));
-    // const click = {userName: currentUser?.userName, id: id}
-    // updateInBE(click);
+    setGrid(changeLights(id, grid, currentUser.userName));
   };
 
   return (

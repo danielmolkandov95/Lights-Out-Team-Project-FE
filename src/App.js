@@ -8,10 +8,10 @@ function App() {
   return (
     <div>
       <Score/>
-      {/* <UserContextProvider>
+      <UserContextProvider>
         <NavBar />
         <HomePage />
-      </UserContextProvider> */}
+      </UserContextProvider>
       <Game/>
     </div>
   );

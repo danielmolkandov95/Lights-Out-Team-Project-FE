@@ -31,7 +31,9 @@ export default function UserContextProvider({ children }) {
   const headersConfig = {
     authorization: `Bearer ${token}`,
   };
-  const handleSignUp = async () => {};
+  const handleSignUp = async () => {
+    
+  };
 
   const handleLogIn = async (event) => {
     event.preventDefault();

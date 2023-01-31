@@ -38,7 +38,9 @@ function prevChar(c) {
    return String.fromCharCode(c.charCodeAt(0) - 1);
 }
 
-function changeNextTo(id, grid) {
+
+
+function changeLights(id, grid) {
    const L = id[0];
    const N = Number(id[1]);
    const newGrid = {
@@ -47,9 +49,9 @@ function changeNextTo(id, grid) {
       [nextChar(L) + N]: !grid[nextChar(L) + N],
       [prevChar(L) + N]: !grid[prevChar(L) + N],
       [L + (N - 1)]: !grid[L + (N - 1)],
-      [L + (N + 1)]: !grid[L + (N - 1)],
+      [L + (N + 1)]: !grid[L + (N + 1)],
    };
    return newGrid;
 }
 
-module.exports = { randomBoolean, startGame, changeNextTo };
+module.exports = { randomBoolean, startGame, changeLights };
