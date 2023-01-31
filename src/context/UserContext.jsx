@@ -64,9 +64,9 @@ export default function UserContextProvider({ children }) {
     }
   };
 
-  const updateInBE = async (userName) => {
+  const updateInBE = async (click) => {
     const clickUpdate = await axios.post(
-      `http://localhost:8080/click/${userName}`
+      `http://localhost:8080/click`, click
     );
     console.log("clickUpdate", clickUpdate);
   };

@@ -1,12 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Game.css";
 import { Table } from "react-bootstrap";
 import { UserContext } from "../context/UserContext";
+import { changeNextTo, startGame } from "../logic/gameLogic";
 
 function Game() {
-  const { currentUser, updateInBE } = useContext(UserContext);
-
-  const [grid, setGrid] = useState({
+  // const { currentUser, updateInBE } = useContext(UserContext)
+/*{
     A1: false,
     A2: false,
     A3: false,
@@ -32,14 +32,13 @@ function Game() {
     E3: false,
     E4: false,
     E5: false,
-  });
+  }*/
+  const [grid, setGrid] = useState(startGame());
 
   const handleClick = (id) => {
-    setGrid({
-      ...grid,
-      [id]: !grid[id],
-    });
-    updateInBE(currentUser.userName);
+    setGrid(changeNextTo(id, grid));
+    // const click = {userName: currentUser?.userName, id: id}
+    // updateInBE(click);
   };
 
   return (
