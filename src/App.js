@@ -10,12 +10,10 @@ function App() {
   return (
     <div>
       <Score />
-       {/* <UserContextProvider>
+       <UserContextProvider>
         <NavBar />
-
         <Routes>
           <Route path="/" element={<HomePage />} />
-
           <Route
             path="/game"
             element={
@@ -25,7 +23,7 @@ function App() {
             }
           />
         </Routes>
-          </UserContextProvider> */}
+          </UserContextProvider>
     </div> 
     
   );
