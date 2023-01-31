@@ -5,7 +5,6 @@ import Navbar from "react-bootstrap/Navbar";
 import LogIn from "../components/Login";
 
 import { UserContext } from "../context/UserContext";
-import { useContext } from "react";
 import SignUp from "./SignUp";
 
 export default function NavBar() {

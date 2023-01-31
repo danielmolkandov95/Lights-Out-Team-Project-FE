@@ -4,10 +4,6 @@ import { toast } from "react-toastify";
 export const UserContext = createContext();
 
 export default function UserContextProvider({ children }) {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
@@ -84,9 +80,7 @@ export default function UserContextProvider({ children }) {
         setCurrentUser,
         token,
         setToken,
-        handleShow,
-        handleClose,
-        show,
+
         signUpInfo,
         setSignUpInfo,
         handleSignUp,

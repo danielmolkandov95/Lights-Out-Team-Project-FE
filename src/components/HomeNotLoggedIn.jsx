@@ -1,6 +1,6 @@
 function HomeNotLoggedIn() {
   return (
-    <>
+    <div className="mt-5">
       <div className="fs-1 container mt-5 text-center font-weight-bold text-white">
         Hello fellow human
       </div>
@@ -14,7 +14,7 @@ function HomeNotLoggedIn() {
         puzzle is to switch all the lights off, preferably in as few button
         presses as possible.
       </div>
-    </>
+    </div>
   );
 }
 
