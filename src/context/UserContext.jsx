@@ -84,10 +84,7 @@ export default function UserContextProvider({ children }) {
         setCurrentUser,
         token,
         setToken,
-
-        signUpInfo,
-        setSignUpInfo,
-        handleSignUp,
+        updateInBE,
       }}
     >
       {children}
