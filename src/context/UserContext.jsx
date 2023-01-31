@@ -16,6 +16,7 @@ export default function UserContextProvider({ children }) {
     lastScore: 700,
     highestScore: 925,
   });
+  const [signUpInfo, setSignUpInfo] = useState({});
 
   const [token, setToken] = useState(
     JSON.stringify(localStorage.getItem("token")) || null
@@ -30,6 +31,7 @@ export default function UserContextProvider({ children }) {
   const headersConfig = {
     authorization: `Bearer ${token}`,
   };
+  const handleSignUp = async () => {};
 
   const handleLogIn = async (event) => {
     event.preventDefault();
@@ -63,11 +65,11 @@ export default function UserContextProvider({ children }) {
   };
 
   const updateInBE = async (userName) => {
-    const clickUpdate = await axios.post(`http://localhost:8080/click/${userName}`)
-    console.log("clickUpdate", clickUpdate)
-  }
-
-  
+    const clickUpdate = await axios.post(
+      `http://localhost:8080/click/${userName}`
+    );
+    console.log("clickUpdate", clickUpdate);
+  };
 
   return (
     <UserContext.Provider
