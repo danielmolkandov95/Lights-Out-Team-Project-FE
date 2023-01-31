@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <Score />
-       <UserContextProvider>
+       {/* <UserContextProvider>
         <NavBar />
 
         <Routes>
@@ -25,8 +25,9 @@ function App() {
             }
           />
         </Routes>
-      </UserContextProvider> 
-    </div>
+          </UserContextProvider> */}
+    </div> 
+    
   );
 }
 
