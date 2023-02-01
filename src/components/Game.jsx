@@ -22,8 +22,18 @@ function Game() {
     }
   }, [grid]);
 
+  // const getUsersMove = async (id, email) => {
+  //   const userClick = { id: id, email: email };
+  //   const newMove = await axios.post("http://localhost:3001/grid", userClick, {
+  //     withCredentials: true,
+  //   });
+  //   return newMove.data;
+  // };
+
   const handleClick = (id) => {
     setClicks(clicks + 1);
+
+    // setGrid(getUsersMove(id, currentUser.email));
     setGrid(changeLights(id, grid, currentUser.userName));
   };
 

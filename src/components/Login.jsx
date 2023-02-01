@@ -15,8 +15,11 @@ function LogIn() {
 
   const handleChange = (e) => {
     setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
-    console.log(loginInfo);
+   //  console.log(loginInfo);
   };
+  console.log(loginInfo);
+
+  //   const { email, password } = loginInfo;
 
   return (
      <div>
