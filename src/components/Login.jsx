@@ -20,9 +20,9 @@ function LogIn() {
 
   return (
      <div>
-        <Nav.Link variant="primary" onClick={handleShow}>
+        <button variant="primary" onClick={handleShow}>
            Login
-        </Nav.Link>
+        </button>
 
         <Modal show={show} onHide={handleClose}>
            <Modal.Header closeButton>

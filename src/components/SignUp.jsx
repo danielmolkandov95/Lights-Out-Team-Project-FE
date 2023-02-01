@@ -20,9 +20,9 @@ export default function SignUp() {
 
    return (
       <div>
-         <Nav.Link variant="primary" onClick={handleShow}>
+         <button variant="primary" onClick={handleShow}>
             Sign Up
-         </Nav.Link>
+         </button>
 
          <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
