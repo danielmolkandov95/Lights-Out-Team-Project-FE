@@ -7,8 +7,9 @@ body {
   font-family: "Rubik", sans-serif;
   color: white;
 }
+
 .table-score {
-    padding: 0.5rem;
+
   border-radius: 25px;
   box-shadow: 0 0 7px #fff, 0 0 10px #fff;
   width: fit-content;
