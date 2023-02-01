@@ -31,12 +31,11 @@ function Game() {
     try {
       const date = new Date();
       const userScore = {
-        userName: currentUser.UserName,
+        email: currentUser.email,
         score: score,
+        clicks: clicks,
         date: date,
       };
-      console.log(userScore);
-
       const res = await axios.post(`http://localhost:3001/scores`, userScore, {
         withCredentials: true,
       });
