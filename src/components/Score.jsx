@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./Score.css";
 import Table from "react-bootstrap/Table";
 import { UserContext } from "../context/UserContext";
-import React, { useContext } from "react";
 import Pagination from "./Pagination";
+import axios from "axios";
 
 function Score() {
   const { currentUser } = useContext(UserContext);
 
   // setting scores
-  // const [userScores, setUserScores] = useState([]);
-  // const [allScores, setAllScores] = useState([]);
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [scoresPerPage, setScoresPerPage] = useState(10);
+  const [userScores, setUserScores] = useState([]);
+  const [allScores, setAllScores] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [scoresPerPage, setScoresPerPage] = useState(10);
 
   // setting quantity of pages depending of quantity of scores
-  // const indexOfLastScore = currentPage * scoresPerPage;
-  // const indexofFirstScore = indexOfLastScore - scoresPerPage;
-  // const currentScores = userScores.slice(indexofFirstScore, indexOfLastScore);
+  const indexOfLastScore = currentPage * scoresPerPage;
+  const indexofFirstScore = indexOfLastScore - scoresPerPage;
+  const currentScores = userScores.slice(indexofFirstScore, indexOfLastScore);
 
   // change page
-  // const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   const getUserScores = async () => {
     try {
@@ -41,7 +41,7 @@ function Score() {
   const getAllScores = async () => {
     try {
       const allScores = await axios.get(
-        `http://localhost:3001/user/scores/${currentUser.userName}`
+        `http://localhost:3001/users/scores`
       );
       console.log("allScores", allScores);
       // setAllScores(allScores)
@@ -68,7 +68,7 @@ function Score() {
 
         {/* // taking each score and putting in on the table */}
         
-        {/* <tbody>
+        <tbody>
           {currentScores.map((score) => (
             <tr>
               <td>{score.date}</td>
@@ -76,7 +76,7 @@ function Score() {
             </tr>
           ))}
         <Pagination scoresPerPage={scoresPerPage} totalScores={userScores.length} paginate={paginate}/>
-        </tbody> */}
+        </tbody>
 
 
         <tbody>
@@ -124,7 +124,6 @@ function Score() {
       </Table>
 
       <div className="table-score"> Track the highest score: </div>
-    <div>
       <div className="container">
       
         <Table className="table-score">
@@ -196,7 +195,6 @@ function Score() {
         </Table>
       </div>
     </div>
-  );
   );
 }
 

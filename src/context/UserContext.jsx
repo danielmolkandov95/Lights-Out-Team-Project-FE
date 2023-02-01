@@ -29,6 +29,7 @@ export default function UserContextProvider({ children }) {
    const headersConfig = {
       authorization: `Bearer ${token}`,
    };
+
    const handleSignUp = async () => {
       try{
          const res = await axios.post(
@@ -45,8 +46,8 @@ export default function UserContextProvider({ children }) {
       event.preventDefault();
       try {
          const data = await axios.post(
-            "http://localhost:3001/user/login",
-            loginInfo
+            "http://localhost:3001/users/login",
+            loginInfo, {withCredentials: true}
          );
          console.log("data", data.data);
          if (data) {
