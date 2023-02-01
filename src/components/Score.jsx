@@ -87,7 +87,7 @@ function Score() {
     <div className="container">
       {userScores && (
         <Table className="table-score">
-          <h1>{currentUser.userName} history:</h1>
+          <h1>Your history:</h1>
           <h1>(last 10 results)</h1>
 
           <thead>
@@ -122,7 +122,7 @@ function Score() {
       )}
 
       <Table className="table-score">
-        <h1>My highest score</h1>
+        <h1>Your highest score</h1>
         <thead>
           <tr>
             <th>Date</th>
@@ -153,7 +153,7 @@ function Score() {
           <thead>
             <tr>
               <th>#</th>
-              <th>Username</th>
+              <th>User</th>
               <th>Score</th>
               <th>Clicks</th>
             </tr>

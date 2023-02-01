@@ -19,12 +19,6 @@ export default function UserContextProvider({ children }) {
     const user = JSON.parse(localStorage.getItem("currentUser"));
     user && setCurrentUser(user);
   }, []);
-  //THIS CREATES A TOKEN IF THERE IS ALREADY A TOKEN, WHY?
-  // useEffect(() => {
-  //   if (token) {
-  //     localStorage.setItem("token", JSON.stringify(token));
-  //   }
-  // }, [token]);
 
   const headersConfig = {
     authorization: `Bearer ${token}`,
