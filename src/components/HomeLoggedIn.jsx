@@ -11,12 +11,9 @@ function HomeLoggedIn() {
   return (
     <div className="user-welcome-page">
       <div>
-        <h1>Welcome {currentUser?.userName}</h1><br/>
-
-        <h2>Your Last Score: {currentUser?.lastScore} </h2>
-        <h2>Your Best Score: {currentUser?.highestScore} </h2>
+        <h1 >Welcome {currentUser?.userName}</h1><br/>
       <div>
-        <Button onClick={() => navigate("/game")}>Start a new game</Button>
+        <Button className="button-game" onClick={() => navigate("/game")}>Start a new game</Button>
       </div>
       </div>
     </div>

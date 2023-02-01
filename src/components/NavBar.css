@@ -12,3 +12,12 @@ button {
 button:hover {
      background-color: #42bbf3;
 }
+
+@media only screen and (max-width: 800px) {
+    .nav-bar{ display: flex;}
+    .title{ display: none;}
+    .nav-bar{margin-top: -6px; }
+    .container{margin: 2rem auto;}
+    
+
+   }

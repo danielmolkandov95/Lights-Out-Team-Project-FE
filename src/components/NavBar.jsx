@@ -24,7 +24,7 @@ export default function NavBar() {
             variant="dark"
          >
             <div className="container">
-               <Navbar.Brand as={Link} to="/">
+               <Navbar.Brand className="title" as={Link} to="/">
                   Lights Out !
                </Navbar.Brand>
                <Nav className="align-items-center w-100 d-flex justify-content-center gap-5">

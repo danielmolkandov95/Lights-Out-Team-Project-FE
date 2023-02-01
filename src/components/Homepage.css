@@ -1,0 +1,27 @@
+@media only screen and (max-width: 800px) {
+  .homepage {
+    flex-wrap: wrap;
+    margin-top: -2rem;
+  }
+  .home {
+    width: none !important;
+    margin: 1rem auto !important;
+  }
+  .button-game {
+    margin-left: 0!important ;
+    font-size: larger;
+  }
+  h1 {
+    font-size: xx-large;
+  }
+}
+.homepage {
+  display: flex;
+  justify-content: center;
+}
+.home {
+  margin: 7rem auto;
+  font-size: x-large !important;
+  font-weight: bold;
+  line-height: 3.1rem;
+}
