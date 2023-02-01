@@ -52,7 +52,7 @@
 
 @media only screen and (max-width: 800px) {
   .score {
-    width: 52%;
+    width: 59%;
     height: 3rem;
     margin: 1rem auto;
   }
@@ -75,7 +75,12 @@ tr,
 td {
   border: none;
 }
-
+th{
+  padding: 5rem;
+}
+td{
+  padding: 3rem;
+}
 .button-game{
   background-color: #B8059D;
   border: none;
@@ -103,4 +108,9 @@ justify-content: space-around;
   position: relative;
   padding:10px;
   background-color:  #2614C8;
+}
+
+@media only screen and (max-width: 800px) {
+  .player1{
+margin-right: 6rem;}
 }
