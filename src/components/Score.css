@@ -12,7 +12,7 @@ body {
   border-radius: 25px;
   box-shadow: 0 0 7px #fff, 0 0 10px #fff;
   width: fit-content;
-  height: fit-content;
+
   display: flex;
   flex-direction: column;
   color: #fff;
@@ -24,7 +24,7 @@ body {
   margin: 5rem auto;
 
 }
-h1{
+.title-score{
   font-size: larger;
   margin: inherit;
 
@@ -32,4 +32,22 @@ h1{
 @media only screen and (max-width: 800px) {
   .container{flex-direction: column;
     margin: 1.2rem auto;}
+}
+.page-link{
+  border-radius: 25px;
+  background-color: #212121;
+  border: none;
+  box-shadow: none;
+  padding: 5px;
+ align-items: center;
+}
+.numbers{
+  display: flex;
+  justify-content: center;
+}
+.page-link:hover{
+  box-shadow: none;
+}
+.page-link:focus{
+  box-shadow: none;
 }

@@ -17,7 +17,7 @@ function Score() {
   const [userHighestScore, sertUserHighestScore] = useState({});
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [scoresPerPage, setScoresPerPage] = useState(10);
+  const [scoresPerPage, setScoresPerPage] = useState(4);
 
   const indexOfLastScore = currentPage * scoresPerPage;
   const indexofFirstScore = indexOfLastScore - scoresPerPage;
@@ -87,9 +87,8 @@ function Score() {
     <div className="container">
       {userScores && (
         <Table className="table-score">
-          <h1>{currentUser.userName} history:</h1>
-          <h1>(last 10 results)</h1>
-
+          <h1 className="title-score">{currentUser.userName} history:</h1>
+          <h1 className="title-score">(last 4 results)</h1>
           <thead>
             <tr>
               <th>Date</th>
@@ -100,7 +99,7 @@ function Score() {
           <tbody>
             {userScores
               .sort((a, b) => new Date(b.date) - new Date(a.date))
-              .slice(-10)
+              .slice(-4)
               .map((score) => (
                 <tr>
                   <td>
@@ -122,7 +121,7 @@ function Score() {
       )}
 
       <Table className="table-score">
-        <h1>My highest score</h1>
+        <h1 className="title-score">My highest score</h1>
         <thead>
           <tr>
             <th>Date</th>
@@ -148,7 +147,7 @@ function Score() {
 
       {sortedScores && (
         <Table className="table-score">
-          <h1>Ranking:</h1>
+          <h1 className="title-score">Ranking:</h1>
 
           <thead>
             <tr>

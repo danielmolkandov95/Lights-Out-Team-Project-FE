@@ -8,7 +8,7 @@ for (let i = 1; i <= Math.ceil(totalScores / scoresPerPage); i++) {
 }
     return(
 
-        <nav>
+        <nav className="numbers">
             <ul className="pagination">
                 {pageNumbers.map(number => 
                     <li key={number} className="page-item">

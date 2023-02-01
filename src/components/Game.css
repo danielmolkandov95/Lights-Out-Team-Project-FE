@@ -58,9 +58,9 @@
   }
   .table {
     border-radius: 15px;
-    margin: 19% auto; 
+    margin: 8% auto;
   }
-  td {padding: 1px!important;}
+  td {padding: 7px!important;}
 }
 
 .light-on {
@@ -75,15 +75,11 @@ tr,
 td {
   border: none;
 }
-th{
-  padding: 5rem;
-}
-td{
-  padding: 3rem;
-}
+
 .button-game{
   background-color: #B8059D;
   border: none;
+  margin-left: 3rem;
 }
 .button-game:hover{
   background-color: #2614C8;
