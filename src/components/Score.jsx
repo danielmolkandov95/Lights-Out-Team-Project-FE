@@ -8,9 +8,13 @@ import axios from "axios";
 function Score() {
   const { currentUser } = useContext(UserContext);
 
+  // console.log("currentUser", currentUser);
+
   // setting scores
   const [userScores, setUserScores] = useState([]);
   const [allScores, setAllScores] = useState([]);
+  const [userHighestScore, sertUserHighestScore] = useState({});
+
   const [currentPage, setCurrentPage] = useState(1);
   const [scoresPerPage, setScoresPerPage] = useState(10);
 
@@ -20,15 +24,40 @@ function Score() {
   const currentScores = userScores.slice(indexofFirstScore, indexOfLastScore);
 
   // change page
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const getAllScores = async () => {
+    try {
+      const allScores = await axios.get(`http://localhost:3001/scores`, {
+        withCredentials: true,
+      });
+      setAllScores(allScores.data);
+    } catch (err) {
+      alert(err);
+    }
+  };
+  // const allScoresData = allScores.data;
+  let sortedScores = [];
+
+  if (allScores) {
+    sortedScores = [...allScores];
+    sortedScores.sort((a, b) => {
+      return b.score - a.score;
+    });
+  }
+
+  useEffect(() => {
+    getAllScores();
+  }, []);
 
   const getUserScores = async () => {
     try {
       const currentUserScores = await axios.get(
-        `http://localhost:3001/user/scores/${currentUser.userName}`
+        `http://localhost:3001/scores/${currentUser.email}`,
+        { withCredentials: true }
       );
-      console.log("currentUserScores", currentUserScores);
-      // setUserScores(currentUserScores)
+
+      setUserScores(currentUserScores.data);
     } catch (err) {
       alert(err);
     }
@@ -38,163 +67,172 @@ function Score() {
     getUserScores();
   }, []);
 
-  const getAllScores = async () => {
+  const getUserHighestScore = async () => {
     try {
-      const allScores = await axios.get(
-        `http://localhost:3001/users/scores`
+      const userHighestScore = await axios.get(
+        `http://localhost:3001/scores/high/${currentUser.email}`,
+        { withCredentials: true }
       );
-      console.log("allScores", allScores);
-      // setAllScores(allScores)
+      console.log("highest USer Score", userHighestScore.data);
+
+      sertUserHighestScore(userHighestScore.data);
     } catch (err) {
       alert(err);
     }
   };
 
   useEffect(() => {
-    getAllScores();
+    getUserHighestScore();
   }, []);
 
   return (
     <div className="container">
-      <h1>Score</h1>
-      <Table className="table-score">
-        Track your progress:
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-
-        {/* // taking each score and putting in on the table */}
-        
-        <tbody>
-          {currentScores.map((score) => (
-            <tr>
-              <td>{score.date}</td>
-              <td>{score.points}</td>
-            </tr>
-          ))}
-        <Pagination scoresPerPage={scoresPerPage} totalScores={userScores.length} paginate={paginate}/>
-        </tbody>
-
-
-        <tbody>
-          <tr>
-            <td>1 Fev 2023</td>
-            <td>35</td>
-          </tr>
-          <tr>
-            <td>21 Janv 2023</td>
-            <td>50</td>
-          </tr>
-          <tr>
-            <td>19 Janv 2023</td>
-            <td>12</td>
-          </tr>
-        </tbody>
-      </Table>
-
-      <Table className="table-score">
-        Track players progress:
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Username</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>@mdo</td>
-            <td>50</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>@fat</td>
-            <td>30</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>@twitter</td>
-            <td>10</td>
-          </tr>
-        </tbody>
-      </Table>
-
-      <div className="table-score"> Track the highest score: </div>
-      <div className="container">
+      {userScores && (
         <Table className="table-score">
-          Your Top Scores:
+          <h1>{currentUser.userName} history:</h1>
           <thead>
             <tr>
               <th>Date</th>
               <th>Score</th>
+              <th>Clicks</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1 Fev 2023</td>
-              <td>35</td>
-            </tr>
-            <tr>
-              <td>21 Janv 2023</td>
-              <td>50</td>
-            </tr>
-            <tr>
-              <td>19 Janv 2023</td>
-              <td>12</td>
-            </tr>
+            {userScores
+              .sort((a, b) => new Date(b.date) - new Date(a.date))
+              .map((score) => (
+                <tr>
+                  <td>
+                    {new Date(score.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                    })}
+                  </td>
+                  <td>{score.score}</td>
+                  <td>{score.clicks}</td>
+                </tr>
+              ))}
+            {/* <Pagination
+              scoresPerPage={scoresPerPage}
+              totalScores={userScores.length}
+              paginate={paginate}
+            /> */}
           </tbody>
         </Table>
+      )}
 
+      <Table className="table-score">
+        <h1>My highest score</h1>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Score</th>
+            <th>Clicks</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>
+              {new Date(userHighestScore.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+              })}
+            </td>
+            <td>{userHighestScore.score}</td>
+            <td>{userHighestScore.clicks}</td>
+          </tr>
+        </tbody>
+      </Table>
+
+      {sortedScores && (
         <Table className="table-score">
-          Top Scores:
+          <h1>Ranking:</h1>
+
           <thead>
             <tr>
               <th>#</th>
-              <th>User Name</th>
+              <th>Username</th>
               <th>Score</th>
+              <th>Clicks</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>@mdo</td>
-              <td>50</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>@fat</td>
-              <td>30</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>@twitter</td>
-              <td>10</td>
-            </tr>
+            {sortedScores.map((score, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{score.email}</td>
+                <td>{score.score}</td>
+                <td>{score.clicks}</td>
+              </tr>
+            ))}
           </tbody>
         </Table>
-
-        <Table className="table-score">
-          Top Score:
-          <thead>
-            <tr>
-              <th>User Name</th>
-              <th>Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>@raph</td>
-              <td>100 </td>
-            </tr>
-          </tbody>
-        </Table>
-      </div>
+      )}
     </div>
   );
 }
 
 export default Score;
+
+{
+  /* <h1>Score</h1>
+<Table className="table-score">
+
+//currentUser scores
+
+  Track your progress:
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Score</th>
+    </tr>
+  </thead> */
+  /* <tbody>
+    {currentUserScores.map((score) => (
+      <tr>
+        <td>{score.date}</td>
+        <td>{score.points}</td>
+      </tr>
+    ))}
+  <Pagination scoresPerPage={scoresPerPage} totalScores={userScores.length} paginate={paginate}/>
+  </tbody>
+</Table>
+
+<Table className="table-score">
+  {/* all the users scores */
+}
+//    Track players progress:
+//   <thead>
+//     <tr>
+//       <th>#</th>
+//       <th>Username</th>
+//       <th>Score</th>
+//     </tr>
+//   </thead>
+//   <tbody>
+//    {allScoresData.map((score) => (
+//       <tr>
+//         <td>{score.email}</td>
+//         <td>{score.score}</td>
+//       </tr>
+//     ))}
+//      <tr>
+//       <td>1</td>
+//       <td>@mdo</td>
+//       <td>50</td>
+//     </tr>
+//     <tr>
+//       <td>2</td>
+//       <td>@fat</td>
+//       <td>30</td>
+//     </tr>
+//     <tr>
+//       <td>3</td>
+//       <td>@twitter</td>
+//       <td>10</td>
+//     </tr>
+//   </tbody>
+// </Table>
