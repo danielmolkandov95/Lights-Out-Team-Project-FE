@@ -41,7 +41,8 @@ function Game() {
     try {
       const date = new Date();
       const userScore = {
-        userName: currentUser.UserName,
+        email: currentUser.email,
+        clicks: clicks,
         score: score,
         date: date,
       };
@@ -57,11 +58,11 @@ function Game() {
   };
 
   return (
-    <div>
-      <div className="two-players">
+    <div className="mt-5 pt-4">
+      {/* <div className="two-players">
         <div className="player1">PLAYER 1</div>
         <div className="player2">PLAYER 2</div>
-      </div>
+      </div> */}
       <div className="score">
         Your score: {score} | #Clicks: {clicks}
       </div>
