@@ -125,9 +125,8 @@ function Score() {
 
       <div className="table-score"> Track the highest score: </div>
       <div className="container">
-      
         <Table className="table-score">
-           Your Top Scores:
+          Your Top Scores:
           <thead>
             <tr>
               <th>Date</th>
@@ -182,13 +181,13 @@ function Score() {
           Top Score:
           <thead>
             <tr>
-            <th>User Name</th>
+              <th>User Name</th>
               <th>Score</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-            <td>@raph</td>
+              <td>@raph</td>
               <td>100 </td>
             </tr>
           </tbody>

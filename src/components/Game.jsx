@@ -35,11 +35,11 @@ function Game() {
         score: score,
         date: date,
       };
-      const res = await axios.post(
-        `http://localhost:3001/users/scores`,
-        userScore,
-        { withCredentials: true }
-      );
+      console.log(userScore);
+
+      const res = await axios.post(`http://localhost:3001/scores`, userScore, {
+        withCredentials: true,
+      });
       return res ? true : false;
     } catch (err) {
       console.log("error:", err);
