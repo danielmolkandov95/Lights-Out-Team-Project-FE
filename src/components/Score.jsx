@@ -4,6 +4,7 @@ import Table from "react-bootstrap/Table";
 import { UserContext } from "../context/UserContext";
 import Pagination from "./Pagination";
 import axios from "axios";
+import uuid from "react-uuid";
 
 function Score() {
   const { currentUser } = useContext(UserContext);
@@ -18,12 +19,9 @@ function Score() {
   const [currentPage, setCurrentPage] = useState(1);
   const [scoresPerPage, setScoresPerPage] = useState(10);
 
-  // setting quantity of pages depending of quantity of scores
   const indexOfLastScore = currentPage * scoresPerPage;
   const indexofFirstScore = indexOfLastScore - scoresPerPage;
-  const currentScores = userScores.slice(indexofFirstScore, indexOfLastScore);
 
-  // change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const getAllScores = async () => {
@@ -90,6 +88,8 @@ function Score() {
       {userScores && (
         <Table className="table-score">
           <h1>{currentUser.userName} history:</h1>
+          <h1>(last 10 results)</h1>
+
           <thead>
             <tr>
               <th>Date</th>
@@ -100,6 +100,7 @@ function Score() {
           <tbody>
             {userScores
               .sort((a, b) => new Date(b.date) - new Date(a.date))
+              .slice(-10)
               .map((score) => (
                 <tr>
                   <td>
@@ -113,13 +114,11 @@ function Score() {
                   <td>{score.clicks}</td>
                 </tr>
               ))}
-            {/* <Pagination
-              scoresPerPage={scoresPerPage}
-              totalScores={userScores.length}
-              paginate={paginate}
-            /> */}
           </tbody>
+         
+        
         </Table>
+        
       )}
 
       <Table className="table-score">
@@ -160,17 +159,24 @@ function Score() {
             </tr>
           </thead>
           <tbody>
-            {sortedScores.map((score, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
+            {sortedScores.slice(indexofFirstScore, indexOfLastScore).map((score, index) => (
+              <tr key={uuid()}>
+                <td>{index + 1 + (currentPage - 1) * scoresPerPage}</td>
                 <td>{score.email}</td>
                 <td>{score.score}</td>
                 <td>{score.clicks}</td>
               </tr>
             ))}
           </tbody>
+          <Pagination
+              scoresPerPage={scoresPerPage}
+              totalScores={sortedScores.length}
+              paginate={paginate}
+            />
         </Table>
-      )}
+      )
+      }
+        
     </div>
   );
 }
