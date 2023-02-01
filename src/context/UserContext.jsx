@@ -16,28 +16,43 @@ export default function UserContextProvider({ children }) {
     lastScore: 700,
     highestScore: 925,
   });
-  const [signUpInfo, setSignUpInfo] = useState({});
+  const [signUpInfo, setSignUpInfo] = useState({
+    email:"",
+    userName:"",
+    password:"",
+    repassword:"",
+  });
 
-  const [token, setToken] = useState(
-    JSON.stringify(localStorage.getItem("token")) || null
-  );
+  // const [token, setToken] = useState(
+  //   JSON.stringify(localStorage.getItem("token")) || null
+  // );
 
-  useEffect(() => {
-    if (token) {
-      localStorage.setItem("token", JSON.stringify(token));
+  // useEffect(() => {
+  //   if (token) {
+  //     localStorage.setItem("token", JSON.stringify(token));
+  //   }
+  // }, [token]);
+
+  // const headersConfig = {
+  //   authorization: `Bearer ${token}`,
+  // };
+  const handleSignUp = async (event) => {
+    event.preventDefault();
+    try{
+      const newUser = await axios.post("http://localhost:3001/user/signup", signUpInfo);
+      console.log("newUser", newUser)
+    }catch (err) {
+      alert(err);
     }
-  }, [token]);
-
-  const headersConfig = {
-    authorization: `Bearer ${token}`,
   };
-  const handleSignUp = async () => {};
 
   const handleLogIn = async (event) => {
     event.preventDefault();
     try {
-      // const data = await axios.post("http://localhost:8080/user/login", loginInfo);
-      let data = {};
+      const data = await axios.post("http://localhost:3001/user/login", loginInfo);
+      console.log("data", loginInfo)
+
+      // let data = {};
       if (true) {
         data = currentUser;
         setLoginInfo({
@@ -47,7 +62,7 @@ export default function UserContextProvider({ children }) {
         console.log(data);
         setCurrentUser(data);
 
-        setToken(data);
+        // setToken(data);
         // setLoading(false);
         toast.success("Log in successfull.");
         window.location.reload();
@@ -74,15 +89,16 @@ export default function UserContextProvider({ children }) {
   return (
     <UserContext.Provider
       value={{
-        headersConfig,
+        // headersConfig,
         handleLogIn,
         loginInfo,
         setLoginInfo,
         currentUser,
         setCurrentUser,
-        token,
-        setToken,
+        // token,
+        // setToken,
         updateInBE,
+        handleSignUp,
       }}
     >
       {children}

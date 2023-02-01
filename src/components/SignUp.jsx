@@ -17,7 +17,7 @@ export default function SignUp() {
   const handleChange = (e) => {
     setSignUpInfo({ ...signUpInfo, [e.target.id]: e.target.value });
   };
-  console.log(signUpInfo);
+  // console.log(signUpInfo);
 
   return (
     <div>

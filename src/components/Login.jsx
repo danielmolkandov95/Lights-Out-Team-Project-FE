@@ -16,7 +16,7 @@ function LogIn() {
   const handleChange = (e) => {
     setLoginInfo({ ...loginInfo, [e.target.id]: e.target.value });
   };
-  console.log(loginInfo);
+  // console.log(loginInfo);
 
   //   const { email, password } = loginInfo;
 
@@ -48,7 +48,7 @@ function LogIn() {
             >
               <Form.Control type="password" placeholder="Password" />
             </FloatingLabel>
-            <Button variant="dark" type="submit">
+            <Button variant="dark" type="submit" onClick={handleLogIn}>
               Login
             </Button>
           </Form>
