@@ -22,12 +22,12 @@ body {
 .container {
   display: flex;
   flex-direction: row;
-   margin: 7rem auto; 
 }
 h1{
   font-size: x-large;
 
 }
 @media only screen and (max-width: 800px) {
-  .container{flex-direction: column;}
+  .container{flex-direction: column;
+    margin: 1.2rem auto;}
 }

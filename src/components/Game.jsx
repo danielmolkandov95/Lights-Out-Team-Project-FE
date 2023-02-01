@@ -16,7 +16,7 @@ function Game() {
     for (const light in grid) {
       !grid[light] && count++;
     }
-    setScore((count * 100) / 25);
+    setScore((count * 150) / 25);
     if (count === 25) {
       //CREATE WIN MODAL
     }
@@ -48,6 +48,10 @@ function Game() {
 
   return (
     <div>
+      <div className="two-players">
+        <div className="player1">PLAYER 1</div>
+        <div className="player2">PLAYER 2</div>
+      </div>
       <div className="score">
         Your score: {score} | #Clicks: {clicks}
       </div>
@@ -62,10 +66,10 @@ function Game() {
                 className="light-on"
                 name="A1"
                 style={{
-                  backgroundColor: grid.A1 ? "#0151B0" : "white",
+                  backgroundColor: grid.A1 ? "#59CFFE" : "grey",
                   boxShadow: grid.A1
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -76,10 +80,10 @@ function Game() {
                 className="light-on"
                 name="A2"
                 style={{
-                  backgroundColor: grid.A2 ? "#0151B0" : "white",
+                  backgroundColor: grid.A2 ? "#59CFFE" : "grey",
                   boxShadow: grid.A2
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -89,10 +93,10 @@ function Game() {
                 name="A3"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.A3 ? "#0151B0" : "white",
+                  backgroundColor: grid.A3 ? "#59CFFE" : "grey",
                   boxShadow: grid.A3
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -102,10 +106,10 @@ function Game() {
                 name="A4"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.A4 ? "#0151B0" : "white",
+                  backgroundColor: grid.A4 ? "#59CFFE" : "grey",
                   boxShadow: grid.A4
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -115,10 +119,10 @@ function Game() {
                 name="A5"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.A5 ? "#0151B0" : "white",
+                  backgroundColor: grid.A5 ? "#59CFFE" : "grey",
                   boxShadow: grid.A5
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -130,10 +134,10 @@ function Game() {
                 name="B1"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.B1 ? "#0151B0" : "white",
+                  backgroundColor: grid.B1 ? "#59CFFE" : "grey",
                   boxShadow: grid.B1
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -143,10 +147,10 @@ function Game() {
                 name="B2"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.B2 ? "#0151B0" : "white",
+                  backgroundColor: grid.B2 ? "#59CFFE" : "grey",
                   boxShadow: grid.B2
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -156,10 +160,10 @@ function Game() {
                 name="B3"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.B3 ? "#0151B0" : "white",
+                  backgroundColor: grid.B3 ? "#59CFFE" : "grey",
                   boxShadow: grid.B3
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -169,10 +173,10 @@ function Game() {
                 name="B4"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.B4 ? "#0151B0" : "white",
+                  backgroundColor: grid.B4 ? "#59CFFE" : "grey",
                   boxShadow: grid.B4
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -182,10 +186,10 @@ function Game() {
                 name="B5"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.B5 ? "#0151B0" : "white",
+                  backgroundColor: grid.B5 ? "#59CFFE" : "grey",
                   boxShadow: grid.B5
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -197,10 +201,10 @@ function Game() {
                 name="C1"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.C1 ? "#0151B0" : "white",
+                  backgroundColor: grid.C1 ? "#59CFFE" : "grey",
                   boxShadow: grid.C1
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -210,10 +214,10 @@ function Game() {
                 name="C2"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.C2 ? "#0151B0" : "white",
+                  backgroundColor: grid.C2 ? "#59CFFE" : "grey",
                   boxShadow: grid.C2
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -223,10 +227,10 @@ function Game() {
                 name="C3"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.C3 ? "#0151B0" : "white",
+                  backgroundColor: grid.C3 ? "#59CFFE" : "grey",
                   boxShadow: grid.C3
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -236,10 +240,10 @@ function Game() {
                 name="C4"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.C4 ? "#0151B0" : "white",
+                  backgroundColor: grid.C4 ? "#59CFFE" : "grey",
                   boxShadow: grid.C4
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -249,10 +253,10 @@ function Game() {
                 name="C5"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.C5 ? "#0151B0" : "white",
+                  backgroundColor: grid.C5 ? "#59CFFE" : "grey",
                   boxShadow: grid.C5
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -264,10 +268,10 @@ function Game() {
                 name="D1"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.D1 ? "#0151B0" : "white",
+                  backgroundColor: grid.D1 ? "#59CFFE" : "grey",
                   boxShadow: grid.D1
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -277,10 +281,10 @@ function Game() {
                 name="D2"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.D2 ? "#0151B0" : "white",
+                  backgroundColor: grid.D2 ? "#59CFFE" : "grey",
                   boxShadow: grid.D2
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -290,10 +294,10 @@ function Game() {
                 name="D3"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.D3 ? "#0151B0" : "white",
+                  backgroundColor: grid.D3 ? "#59CFFE" : "grey",
                   boxShadow: grid.D3
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -303,10 +307,10 @@ function Game() {
                 name="D4"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.D4 ? "#0151B0" : "white",
+                  backgroundColor: grid.D4 ? "#59CFFE" : "grey",
                   boxShadow: grid.D4
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -316,10 +320,10 @@ function Game() {
                 name="D5"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.D5 ? "#0151B0" : "white",
+                  backgroundColor: grid.D5 ? "#59CFFE" : "grey",
                   boxShadow: grid.D5
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -331,10 +335,10 @@ function Game() {
                 name="E1"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.E1 ? "#0151B0" : "white",
+                  backgroundColor: grid.E1 ? "#59CFFE" : "grey",
                   boxShadow: grid.E1
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -344,10 +348,10 @@ function Game() {
                 name="E2"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.E2 ? "#0151B0" : "white",
+                  backgroundColor: grid.E2 ? "#59CFFE" : "grey",
                   boxShadow: grid.E2
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -357,10 +361,10 @@ function Game() {
                 name="E3"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.E3 ? "#0151B0" : "white",
+                  backgroundColor: grid.E3 ? "#59CFFE" : "grey",
                   boxShadow: grid.E3
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -370,10 +374,10 @@ function Game() {
                 name="E4"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.E4 ? "#0151B0" : "white",
+                  backgroundColor: grid.E4 ? "#59CFFE" : "grey",
                   boxShadow: grid.E4
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />
@@ -383,10 +387,10 @@ function Game() {
                 name="E5"
                 className="light-on"
                 style={{
-                  backgroundColor: grid.E5 ? "#0151B0" : "white",
+                  backgroundColor: grid.E5 ? "#59CFFE" : "grey",
                   boxShadow: grid.E5
-                    ? "0 0 7px #0151B0, 0 0 10px #0151B0"
-                    : "0 0 7px #fff, 0 0 10px #fff",
+                    ? "0 0 15px #59CFFE, 0 0 15px #59CFFE"
+                    : "",
                 }}
                 onClick={(e) => handleClick(e.target.name)}
               />

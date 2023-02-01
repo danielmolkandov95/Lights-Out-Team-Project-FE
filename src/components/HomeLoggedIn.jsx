@@ -16,7 +16,7 @@ function HomeLoggedIn() {
         <h2>Your Last Score: {currentUser?.lastScore} </h2>
         <h2>Your Best Score: {currentUser?.highestScore} </h2>
       <div>
-        <Button onClick={() => navigate("/game")}>Start a new game</Button>
+        <Button className="button-game" onClick={() => navigate("/game")}>Start a new game</Button>
       </div>
       </div>
     </div>
