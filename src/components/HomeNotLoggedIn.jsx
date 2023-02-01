@@ -1,7 +1,9 @@
+import "./Homepage.css";
+
 function HomeNotLoggedIn() {
   return (
-    <div className=" d-flex justify-content-center">
-      <h1 className="ms-5 fs-1">Lights Out!</h1>
+    <div className="homepage">
+      <h1 className="ms-5 fs-1 ">Lights Out!</h1>
       <div className="fs-1 w-75 container text-center font-weight-bold text-white">
         The game consists of a 5 by 5 grid of lights. When the game starts, a random
         number of lights is switched on. Pressing any
