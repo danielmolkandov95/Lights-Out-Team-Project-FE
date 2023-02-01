@@ -124,7 +124,79 @@ function Score() {
       </Table>
 
       <div className="table-score"> Track the highest score: </div>
+    <div>
+      <div className="container">
+      
+        <Table className="table-score">
+           Your Top Scores:
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 Fev 2023</td>
+              <td>35</td>
+            </tr>
+            <tr>
+              <td>21 Janv 2023</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>19 Janv 2023</td>
+              <td>12</td>
+            </tr>
+          </tbody>
+        </Table>
+
+        <Table className="table-score">
+          Top Scores:
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>User Name</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>@mdo</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>@fat</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>@twitter</td>
+              <td>10</td>
+            </tr>
+          </tbody>
+        </Table>
+
+        <Table className="table-score">
+          Top Score:
+          <thead>
+            <tr>
+            <th>User Name</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            <td>@raph</td>
+              <td>100 </td>
+            </tr>
+          </tbody>
+        </Table>
+      </div>
     </div>
+  );
   );
 }
 

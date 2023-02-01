@@ -1,107 +1,102 @@
 import { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const UserContext = createContext();
 
 export default function UserContextProvider({ children }) {
-  const [loginInfo, setLoginInfo] = useState({
-    email: "",
-    password: "",
-  });
+   const [loginInfo, setLoginInfo] = useState();
+   const navigate = useNavigate();
+   const [currentUser, setCurrentUser] = useState(null);
+   const [signUpInfo, setSignUpInfo] = useState({});
 
-  const [currentUser, setCurrentUser] = useState({
-    userId: 3,
-    userName: "Raphy",
-    lastScore: 700,
-    highestScore: 925,
-  });
-  const [signUpInfo, setSignUpInfo] = useState({
-    email:"",
-    userName:"",
-    password:"",
-    repassword:"",
-  });
+   const [token, setToken] = useState(
+      JSON.stringify(localStorage.getItem("token")) || null
+   );
 
-  // const [token, setToken] = useState(
-  //   JSON.stringify(localStorage.getItem("token")) || null
-  // );
+   useEffect(() => {
+      const user = JSON.parse(localStorage.getItem("currentUser"));
+      user && setCurrentUser(user);
+   }, []);
+   //THIS CREATES A TOKEN IF THERE IS ALREADY A TOKEN, WHY?
+   // useEffect(() => {
+   //   if (token) {
+   //     localStorage.setItem("token", JSON.stringify(token));
+   //   }
+   // }, [token]);
 
-  // useEffect(() => {
-  //   if (token) {
-  //     localStorage.setItem("token", JSON.stringify(token));
-  //   }
-  // }, [token]);
-
-  // const headersConfig = {
-  //   authorization: `Bearer ${token}`,
-  // };
-  const handleSignUp = async (event) => {
-    event.preventDefault();
-    try{
-      const newUser = await axios.post("http://localhost:3001/user/signup", signUpInfo);
-      console.log("newUser", newUser)
-    }catch (err) {
-      alert(err);
-    }
-  };
-
-  const handleLogIn = async (event) => {
-    event.preventDefault();
-    try {
-      const data = await axios.post("http://localhost:3001/user/login", loginInfo);
-      console.log("data", loginInfo)
-
-      // let data = {};
-      if (true) {
-        data = currentUser;
-        setLoginInfo({
-          email: "",
-          password: "",
-        });
-        console.log(data);
-        setCurrentUser(data);
-
-        // setToken(data);
-        // setLoading(false);
-        toast.success("Log in successfull.");
-        window.location.reload();
-        if (typeof window !== "undefined") {
-          localStorage.setItem("token", JSON.stringify(data.data.token));
-          localStorage.setItem(
-            "currentUser",
-            JSON.stringify(data.data.user._id)
-          );
-        }
+   const headersConfig = {
+      authorization: `Bearer ${token}`,
+   };
+   const handleSignUp = async () => {
+      try{
+         const res = await axios.post(
+            `http://localhost:3001/user/signup`,
+            signUpInfo
+         );
       }
-    } catch (err) {
-      alert(err);
-    }
-  };
+      catch(err){
+         console.log('error:', err);
+      }
+   };
 
-  const updateInBE = async (userName) => {
-    const clickUpdate = await axios.post(
-      `http://localhost:8080/click/${userName}`
-    );
-    console.log("clickUpdate", clickUpdate);
-  };
+   const handleLogIn = async (event) => {
+      event.preventDefault();
+      try {
+         const data = await axios.post(
+            "http://localhost:3001/user/login",
+            loginInfo
+         );
+         console.log("data", data.data);
+         if (data) {
+            //  data = currentUser;
+            //  setLoginInfo({
+            //     email: "",
+            //     password: "",
+            //  });
+            //  console.log(data);
+            setCurrentUser(data.data);
+            // setToken(data);
+            // setLoading(false);
+            localStorage.setItem("currentUser", JSON.stringify(data.data));
+            toast.success("Log in successful.");
+            // window.location.reload();
+            if (typeof window !== "undefined") {
+               //  localStorage.setItem("token", JSON.stringify(data.data.token));
+            }
+         }
+      } catch (err) {
+         alert(err);
+      }
+   };
 
-  return (
-    <UserContext.Provider
-      value={{
-        // headersConfig,
-        handleLogIn,
-        loginInfo,
-        setLoginInfo,
-        currentUser,
-        setCurrentUser,
-        // token,
-        // setToken,
-        updateInBE,
-        handleSignUp,
-      }}
-    >
-      {children}
-    </UserContext.Provider>
-  );
+   const updateInBE = async (click) => {
+      const clickUpdate = await axios.post(
+         `http://localhost:3001/click`,
+         click
+      );
+      console.log("clickUpdate", clickUpdate);
+   };
+
+   return (
+      <UserContext.Provider
+         value={{
+            headersConfig,
+            handleLogIn,
+            loginInfo,
+            setLoginInfo,
+            currentUser,
+            setCurrentUser,
+            token,
+            setToken,
+            updateInBE,
+            setSignUpInfo,
+            signUpInfo,
+            handleSignUp,
+         }}
+      >
+         {children}
+      </UserContext.Provider>
+   );
 }
