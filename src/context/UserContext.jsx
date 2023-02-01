@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const UserContext = createContext();
 
 export default function UserContextProvider({ children }) {
-  const [loginInfo, setLoginInfo] = useState();
+  const [loginInfo, setLoginInfo] = useState({});
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState(null);
   const [signUpInfo, setSignUpInfo] = useState({});
@@ -43,21 +43,16 @@ export default function UserContextProvider({ children }) {
 
   const handleLogIn = async (event) => {
     event.preventDefault();
+    console.log("login info", loginInfo);
     try {
       const data = await axios.post(
         "http://localhost:3001/users/login",
         loginInfo,
         { withCredentials: true }
       );
-      console.log("login info", loginInfo);
+
       // console.log("data", data.data);
       if (data) {
-        //  data = currentUser;
-        //  setLoginInfo({
-        //     email: "",
-        //     password: "",
-        //  });
-        //  console.log(data);
         setCurrentUser(data.data);
         // setToken(data);
         // setLoading(false);
