@@ -1,14 +1,18 @@
 import React from "react";
 import "./Score.css";
 import Table from "react-bootstrap/Table";
+import { UserContext } from "../context/UserContext";
+import { useContext } from "react";
 
 function Score() {
+  const { currentUser } = useContext(UserContext);
+  console.log("currentuser", currentUser);
+
   return (
     <div>
       <div className="container">
-      
         <Table className="table-score">
-           Your Top Scores:
+          Your Top Scores:
           <thead>
             <tr>
               <th>Date</th>
@@ -63,13 +67,13 @@ function Score() {
           Top Score:
           <thead>
             <tr>
-            <th>User Name</th>
+              <th>User Name</th>
               <th>Score</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-            <td>@raph</td>
+              <td>@raph</td>
               <td>100 </td>
             </tr>
           </tbody>
